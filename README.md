@@ -7,3 +7,4 @@ Nous allons utiliser python car nous utilisons acutellement ce langage dans diff
 **TD**
 *Exercice 1*
 
+[![Website cv.lbesson.qc.to](https://img.shields.io/website-up-down-green-red/http/cv.lbesson.qc.to.svg)](http://cv.lbesson.qc.to/)
