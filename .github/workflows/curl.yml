@@ -1,0 +1,24 @@
+
+# Controls when the workflow will run
+on:
+  #permet de faire la commande manuel
+  workflow_dispatch:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+
+      # Runs a single command using the runners shell
+      - name: Github action for curl
+        run: curl wttr.in/Moon
+
