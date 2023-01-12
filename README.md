@@ -8,6 +8,8 @@ Nous utilisons acutellement ce langage dans différents projets.
 
 **Sujet choisi : Sujet guidé**
 
+Nous avons choisi ce sujet car nous sommes novice dans ce domaine et nous préferons être accompagné 
+
 
 
 **TD**
