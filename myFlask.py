@@ -34,7 +34,16 @@ def affichage():
         vueDict=""
         for i in range(len(dict)+1):
             if(i>0):
-                vueDict+="Transaction de : "+str(dict[1].P1.nom)+" vers : "+str(dict[1].P2.nom)+" a l'heure "+str(dict[1].t)+" de la somme :"+str(dict[1].s)+"€"+" solde actuel : "+str(personne[0].solde)+" "+str(personne[1].solde)
+                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+" solde actuel : "+str(personne[0].solde)+" "+str(personne[1].solde)
+        return vueDict
+
+@app.route("/nom/<_p>", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
+def affichageNom(_p=None):
+    if request.method == 'GET':
+        vueDict=""
+        for i in range(len(dict)+1):
+            if(i>0 & ((dict[i].P1.nom == str(_p)) | (dict[i].P2.nom == str(_p)))):
+                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+" solde actuel : "+str(personne[0].solde)+" "+str(personne[1].solde)
         return vueDict
 
 @app.route("/<_P1>/<_P2>/<_t>/<_s>", methods=['PUT']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
