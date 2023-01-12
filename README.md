@@ -1,8 +1,14 @@
 # 4A_ILC_API
 
-Groupe composé de Romain Bizot et Luke Develay.
-ESIREM 4A ILC
-Nous allons utiliser python car nous utilisons acutellement ce langage dans différents projets.
+**Groupe composé de Romain Bizot et Luke Develay**
+
+**Langage utilisé : Python**  
+
+Nous utilisons acutellement ce langage dans différents projets.
+
+**Sujet choisi : Sujet guidé**
+
+
 
 **TD**
 
