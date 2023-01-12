@@ -1,33 +1,43 @@
+from flask import Flask
+from flask import request
+import json
 import csv
 
-transac = []
+class Personne:
+    def __init__(self, nom:str, solde:float):
+        self.nom=nom
+        self.solde=solde
+    def reception(self, somme:float):
+        self.solde+=somme
+    def debit(self, somme:float):
+        self.solde-=somme
+        
 class Transaction:
-    
-    def __init__(self, P1, P2, t,s):
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
+    def __init__(self, P1:Personne, P2:Personne, t,s):
         self.P1 = P1
         self.P2 = P2
         self.t = t
         self.s = s
 
 tab = []
-     #Ouverture du fichier CSV
-with open('data.csv', newline='', encoding="utf-8-sig"  ) as csvfile:
+#Ouverture du fichier CSV
+with open('data.csv', newline='', encoding="utf-8-sig") as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
         for rows in row:
-            print(rows)
             p = (str(rows).split(';'))
             tab.append(p)
-    
-    #print(tab[1][2])
+transac = []
 
-print(tab[4][1])
 for i in range(1, 7):
-    nomP1 = tab[i][0]
-    nomP2 = tab[i][1]
+    p1=Personne(tab[i][0],5000)
+    p2=Personne(tab[i][1],4000)
     tempsT = tab[i][2]
     sommeS = tab[i][3]
-    transac.append(Transaction(nomP1, nomP2, tempsT, sommeS))
+    transac.append(Transaction(p1, p2, tempsT, sommeS))
 
-print(transac[1].t)
+
+dict = {0:transac[0], 1:transac[1]}
 
