@@ -13,3 +13,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag dockerfile
+    - name: Push image to registry
+      run: docker push 4A_ILC_API/dockerfile
