@@ -19,4 +19,7 @@ jobs:
       
       # Runs a single command using the runners shell
       - name: echo build app
-        run: python myFlask.py check_syntax
+        run: | 
+         pip3 install flask
+         python myFlask.py check_syntax
+         
