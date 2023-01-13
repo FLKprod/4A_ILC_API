@@ -1,0 +1,14 @@
+name: Builder l'app
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+
+      - name: Build l'app
+        run: echo "build app!"
