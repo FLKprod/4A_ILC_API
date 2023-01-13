@@ -42,7 +42,7 @@ def affichageNom(_p=None):
     if request.method == 'GET':
         vueDict=""
         for i in range(len(dict)+1):
-            if(i>0 & ((dict[i].P1.nom == str(_p)) | (dict[i].P2.nom == str(_p)))):
+            if(i>0 and ((dict[i].P1.nom == str(_p)) or (dict[i].P2.nom == str(_p)))):
                 vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+" solde actuel : "+str(personne[0].solde)+" "+str(personne[1].solde)
         return vueDict
 
