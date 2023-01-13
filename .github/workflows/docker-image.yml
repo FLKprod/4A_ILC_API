@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file dockerfile --tag dockerfile
+      run: docker build -t dockerfile
     - name: Push image to registry
       run: docker push ./dockerfile
