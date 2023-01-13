@@ -14,4 +14,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag dockerfile
     - name: Push image to registry
-      run: docker push dockerfile
+      run: docker push ./dockerfile
