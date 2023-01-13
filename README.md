@@ -17,7 +17,7 @@ Nous avons choisi ce sujet car nous sommes novice dans ce domaine et nous préfe
 **TD**
 
 *Etat action 'echo'*
-![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/blob/actions/workflows/buildAPP.yml/badge.svg)
+![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/buildAPP.yml/badge.svg)
 
 
 *Etat action 'curl'*
