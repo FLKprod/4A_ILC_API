@@ -29,7 +29,7 @@ jobs:
         with:
           # Emplacement du Dockerfile
           file: dockerfile
-          tags: gcr.io/esirem/4A_ILC/BIZOT_DEVELAY/4A_ILC_API:${{ github.ref_name }}
+          tags: gcr.io/esirem/4a_ilc/bizot_develay/4a_ilc_api:${{ github.ref_name }}
           # Emplacement des fichiers 
           context: "."
           push: true
