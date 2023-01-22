@@ -11,6 +11,13 @@ Nous utilisons acutellement ce langage dans différents projets, c'est pourquoi 
 
 Nous avons choisi ce sujet car nous sommes novice dans ce domaine et nous préferons être accompagné.
 
+# Lien des comptes des développeurs de ce projet : 
+
+Luke : https://github.com/lukedvy
+
+Romain : https://github.com/romainbcode
+
+# Quelques boutons d'actions : 
 
 *Etat action à chaque build de l'app*
 ![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/buildAPP.yml/badge.svg)
