@@ -1,12 +1,12 @@
 # 4A_ILC_API
 
-**Groupe composé de Romain Bizot et Luke Develay**
+# **Groupe composé de Romain Bizot et Luke Develay**
 
-**Langage utilisé : Python**  
+# Langage utilisé : Python
 
-Nous utilisons acutellement ce langage dans différents projets.
+Nous utilisons acutellement ce langage dans différents projets, c'est pourquoi nous avoir choisi celui-ci. 
 
-**Sujet choisi : Sujet guidé**
+# **Sujet choisi : "Sujet guidé"**
 
 Nous avons choisi ce sujet car nous sommes novice dans ce domaine et nous préferons être accompagné.
 
@@ -14,7 +14,7 @@ Nous avons choisi ce sujet car nous sommes novice dans ce domaine et nous préfe
 
 
 
-**TD**
+# Reste de la partie TD
 
 *Etat action 'echo'*
 ![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/buildAPP.yml/badge.svg)
