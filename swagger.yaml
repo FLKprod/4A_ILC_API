@@ -1,0 +1,123 @@
+openapi: 3.0.3
+info:
+  title: Projet CI/CD
+  description: |-
+    Application réalisée par Romain Bizot et Luke Develay.
+    
+    API Flask codée pour de la gestion CRUD d’un système de transaction. API codée en Python.
+    
+    Nous avons définis l'ensemble des EndPoints présents dans notre API Flask permettant la gestion CRUD d'un système de transaction.
+
+    Liens utiles de notre GitHub :
+    - [Accès à notre GitHub](https://github.com/romainbcode/4A_ILC_API)
+    - [Lien de notre API Flask](https://github.com/romainbcode/4A_ILC_API/blob/main/myFlask.py)
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+tags:
+  - name: GET
+    description: Description de nos EndPoints utilisant des requêtes de type "GET"
+  - name: PUT
+    description: Description de nos EndPoints utilisant des requêtes de type "PUT"
+
+paths:
+  /:
+    get:
+      tags:
+        - GET
+      summary: Affichage de toutes les transactions
+      description: EndPoint permettant l'affichage de toutes les transactions
+      operationId: affichage
+      responses:
+        '200': {
+          "description": "Successful operation"
+        }
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+        '405':
+          description: Validation exception
+  /nom/<_p>:
+    get:
+      tags:
+        - GET
+      summary: Affichage de toutes les transactions liées à une personne
+      description: EndPoint permettant l'affichage de toutes les transactions liées à une personne
+      operationId: affichageTransactionsPersonne
+      parameters:
+        - name: <_p>
+          in: query
+          description: Nom de la personne sur laquelle nous souhaitons effectuer la recherche
+          required: false
+          schema:
+            type: string
+            example: jean
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid name supplied
+  /solde/<_p>:
+    get:
+      tags:
+        - GET
+      summary: Affichage du solde lié à une personne
+      description: EndPoint permettant l'affichage du solde lié à une personne
+      operationId: affichageSoldePersonne
+      parameters:
+        - name: <_p>
+          in: query
+          description: Nom de la personne sur laquelle nous souhaitons effectuer la recherche
+          required: false
+          schema:
+            type: string
+            example: jean
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid name supplied
+  /<_P1>/<_P2>/<_t>/<_s>:
+    put:
+      tags:
+        - PUT
+      summary: Enregistrement d'une transaction
+      description: "EndPoint permettant l'enregistrement d'une transaction. Recevant plusieurs paramètres : (la personne effectuant la transaction), (la personne recevant la transaction), (l'heure de la transaction), (la somme de la transaction)."
+      operationId: enregistrementTransaction
+      parameters:
+        - name: <_P1>
+          in: query
+          description: Nom de la personne effectuant la transaction
+          required: false
+          schema:
+            type: string
+            example: jean
+        - name: <_P2>
+          in: query
+          description: Nom de la personne recevant la transaction
+          required: false
+          example: louis
+          schema:
+            type: string
+        - name: <_t>
+          in: query
+          description: Heure à laquelle la transaction est effectuée
+          required: false
+          schema:
+            type: string
+            example: 5h00
+        - name: <_s>
+          in: query
+          description: Somme de la transaction
+          required: false
+          schema:
+            type: number
+            format: float
+            example: 500
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid name supplied
