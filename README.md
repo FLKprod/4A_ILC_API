@@ -11,14 +11,8 @@ Nous utilisons acutellement ce langage dans différents projets, c'est pourquoi 
 Nous avons choisi ce sujet car nous sommes novice dans ce domaine et nous préferons être accompagné.
 
 
-
-
-
-# Reste de la partie TD
-
 *Etat action 'echo'*
 ![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/buildAPP.yml/badge.svg)
-
 
 *Etat action 'curl'*
 ![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/newpush.yml/badge.svg)
