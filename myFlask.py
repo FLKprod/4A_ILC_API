@@ -30,22 +30,31 @@ personne={0:p1,1:p2}
 dict={}
 
 @app.route("/", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
-def affichage():
+def affichage(): #afficher toutes les transactions
     if request.method == 'GET':
         vueDict=""
         for i in range(len(dict)+1):
             if(i>0):
-                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+" solde actuel : "+str(personne[0].solde)+" "+str(personne[1].solde)
+                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"
         return vueDict
 
 @app.route("/nom/<_p>", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
-def affichageNom(_p=None):
+def affichageNom(_p=None): #afficher toutes les transactions liées à une personne
     if request.method == 'GET':
         vueDict=""
         for i in range(len(dict)+1):
             if(i>0 and ((dict[i].P1.nom == str(_p)) or (dict[i].P2.nom == str(_p)))):
-                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+" solde actuel : "+str(personne[0].solde)+" "+str(personne[1].solde)
+                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"
         return vueDict
+
+@app.route("/solde/<_p>", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
+def affichageSolde(_p=None): #afficher le solde d'une personne
+    if request.method == 'GET':
+        vuePersonne=""
+        for i in range(len(personne)):
+            if(personne[i].nom == str(_p)):
+                vuePersonne+="Solde actuel de : "+str(personne[i].solde)+" € sur le compte à "+str(personne[i].nom)
+        return vuePersonne
 
 @app.route("/<_P1>/<_P2>/<_t>/<_s>", methods=['PUT']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
 def ajoutTransaction(_P1=None,_P2=None,_t=None,_s=None): #E2 : méthode permettant d'enregistrer une transaction
@@ -60,28 +69,6 @@ def ajoutTransaction(_P1=None,_P2=None,_t=None,_s=None): #E2 : méthode permetta
         transaction=Transaction(_P1,_P2,str(_t),float(_s))
         dict[len(dict)+1]=transaction
         return str(dict)
-
-'''@app.route("/", methods=['GET','PUT']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
-def login():
-    if request.method == 'GET':
-        vueDict=str(dict)
-        return vueDict
-    if request.method == 'PUT':
-        dict[len(dict)]="Nass"
-        return dict
-
-@app.route("/<key>", methods=['DELETE']) #appel dans un aurtre terminal avec : curl -X DELETE http://127.0.0.1:5000/'un chiffre'
-def loge(key=None):
-    if request.method == 'DELETE':
-        dict.pop(int(key))
-        return dict
-
-@app.route("/<key>/<nom>", methods=['POST']) #appel dans un aurtre terminal avec : curl -X POST http://127.0.0.1:5000/'un chiffre'/'un nom'
-def loinPost(key=None, nom=None):
-    if request.method == 'POST':
-        dict[int(key)]=nom
-        return dict'''
-
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
