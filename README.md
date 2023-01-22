@@ -12,11 +12,12 @@ Nous utilisons acutellement ce langage dans différents projets, c'est pourquoi 
 Nous avons choisi ce sujet car nous sommes novice dans ce domaine et nous préferons être accompagné.
 
 
-*Etat action 'echo'*
+*Etat action à chaque build de l'app*
 ![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/buildAPP.yml/badge.svg)
 
-*Etat action 'curl'*
-![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/newpush.yml/badge.svg)
+*Etat action dockeriser une image*
+![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/dockerImFonctionnel.yml/badge.svg)
+
 *Etat action 'Téléchargement de python'*
 ![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/curl.yml/badge.svg)
 
