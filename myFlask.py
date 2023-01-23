@@ -3,8 +3,15 @@ from flask import request
 import json
 import sys
 import csv
+import hashlib
 
 app = Flask(__name__)
+
+def fonctionHash(val1,val2,val3): #fonction hachant une valeur d'entrée
+    #Appel de la fonction sha256 pour créer le hash
+    sha256 = hashlib.sha256()
+    sha256.update((str(val1) + str(val2) + str(val3)).encode())
+    return sha256.hexdigest()
 
 class Personne:
     def __init__(self, nom:str, solde:float):
@@ -23,6 +30,7 @@ class Transaction:
         self.P2=P2
         self.t=t
         self.s=s
+        self.h=fonctionHash(P1,P2,s)
 
 #Création des comptes
 p1=Personne("jean",5000)
@@ -67,19 +75,19 @@ def affichage(): #afficher toutes les transactions
         vueDict=""
         for i in range(len(dict)+1):
             if(i>0):
-                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+"<br>"
+                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+" Fonction hachage : "+str(dict[i].h)+"<br>"
         return vueDict
 
-@app.route("/nom/<_p>", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
+@app.route("/nom/<_p>", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000/nom/<_p>
 def affichageNom(_p=None): #afficher toutes les transactions liées à une personne
     if request.method == 'GET':
         vueDict=""
         for i in range(len(dict)+1):
             if(i>0 and ((dict[i].P1.nom == str(_p)) or (dict[i].P2.nom == str(_p)))):
-                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+"<br>"
+                vueDict+="Transaction de : "+str(dict[i].P1.nom)+" vers : "+str(dict[i].P2.nom)+" a l'heure "+str(dict[i].t)+" de la somme :"+str(dict[i].s)+"€"+" Fonction hachage : "+str(dict[i].h)+"<br>"
         return vueDict
 
-@app.route("/solde/<_p>", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
+@app.route("/solde/<_p>", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000/solde/<_p>
 def affichageSolde(_p=None): #afficher le solde d'une personne
     if request.method == 'GET':
         vuePersonne=""
@@ -88,7 +96,7 @@ def affichageSolde(_p=None): #afficher le solde d'une personne
                 vuePersonne+="Solde actuel de : "+str(personne[i].solde)+" € sur le compte à "+str(personne[i].nom)
         return vuePersonne
 
-@app.route("/<_P1>/<_P2>/<_t>/<_s>", methods=['PUT']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000
+@app.route("/<_P1>/<_P2>/<_t>/<_s>", methods=['PUT']) #appel dans un aurtre terminal avec : curl -X PUT http://127.0.0.1:5000/<_P1>/<_P2>/<_t>/<_s>
 def ajoutTransaction(_P1=None,_P2=None,_t=None,_s=None): #E2 : méthode permettant d'enregistrer une transaction
     if request.method == 'PUT':
         for i in range(len(personne)):
