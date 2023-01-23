@@ -25,8 +25,8 @@ Romain : https://github.com/romainbcode
 *Etat action dockeriser une image*
 ![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/dockerImFonctionnel.yml/badge.svg)
 
-*Etat action 'Téléchargement de python'*
-![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/curl.yml/badge.svg)
+*Etat action 'Ajout tag semver pour chaque image créée et poussée'*
+![Website cv.lbesson.qc.to](https://github.com/romainbcode/4A_ILC_API/actions/workflows/pushImageSemver.yml/badge.svg)
 
 
 
