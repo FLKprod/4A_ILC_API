@@ -3,7 +3,7 @@ name: Docker push GCR
 on:
   push:
     tags:        
-      - v*
+      - v*.*.*
 
 jobs:
   docker:
