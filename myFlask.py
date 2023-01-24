@@ -7,10 +7,10 @@ import hashlib
 
 app = Flask(__name__)
 
-def fonctionHash(val1,val2,val3): #fonction hachant une valeur d'entrée
+def fonctionHash(val1,val2,val3,val4): #fonction hachant une valeur d'entrée
     #Appel de la fonction sha256 pour créer le hash
     sha256 = hashlib.sha256()
-    sha256.update((str(val1) + str(val2) + str(val3)).encode())
+    sha256.update((str(val1) + str(val2) + str(val3)+ str(val4)).encode())
     return sha256.hexdigest()
 
 class Personne:
@@ -30,7 +30,7 @@ class Transaction:
         self.P2=P2
         self.t=t
         self.s=s
-        self.h=fonctionHash(P1,P2,s)
+        self.h=fonctionHash(P1,P2,t,s)
 
 #Création des comptes
 p1=Personne("jean",5000)
@@ -116,7 +116,7 @@ def hash(): #Vérification de l'intégrité des données après hashage
         vueDict=""
         for i in range(len(dict)+1):
             if(i>0):
-                if(fonctionHash(dict[i].P1,dict[i].P2,dict[i].s)==dict[i].h):
+                if(fonctionHash(dict[i].P1,dict[i].P2,dict[i].t,dict[i].s)==dict[i].h):
                     vueDict+="Hashage vérifiée pour la transaction n° : "+str(i)+"<br>"
                 else:
                     vueDict+="Hashage corrompu pour la transaction n° : "+str(i)+"<br>"
