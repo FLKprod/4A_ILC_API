@@ -110,6 +110,18 @@ def ajoutTransaction(_P1=None,_P2=None,_t=None,_s=None): #E2 : méthode permetta
         dict[len(dict)+1]=transaction
         return str(dict)
 
+@app.route("/hachage", methods=['GET']) #appel dans un aurtre terminal avec : curl -X GET http://127.0.0.1:5000/hachage
+def hash(): #Vérification de l'intégrité des données après hashage
+    if request.method == 'GET':
+        vueDict=""
+        for i in range(len(dict)+1):
+            if(i>0):
+                if(fonctionHash(dict[i].P1,dict[i].P2,dict[i].s)==dict[i].h):
+                    vueDict+="Hashage vérifiée pour la transaction n° : "+str(i)+"<br>"
+                else:
+                    vueDict+="Hashage corrompu pour la transaction n° : "+str(i)+"<br>"
+        return vueDict
+
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         if sys.argv[1] == "check_syntax":
