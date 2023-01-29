@@ -17,6 +17,10 @@ Luke : https://github.com/lukedvy
 
 Romain : https://github.com/romainbcode
 
+# Choix fonction de hashage : 
+
+SHA-256
+
 # Quelques boutons d'actions : 
 
 *Etat action à chaque build de l'app*
