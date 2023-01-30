@@ -36,7 +36,7 @@ paths:
         '400':
           description: Invalid ID supplied
         '404':
-          description: Pet not found
+          description: Page not found
         '405':
           description: Validation exception
   /nom/<_p>:
@@ -55,10 +55,15 @@ paths:
             type: string
             example: jean
       responses:
-        '200':
-          description: successful operation
+        '200': {
+          "description": "Successful operation"
+        }
         '400':
-          description: Invalid name supplied
+          description: Invalid ID supplied
+        '404':
+          description: Page not found
+        '405':
+          description: Validation exception
   /solde/<_p>:
     get:
       tags:
@@ -75,10 +80,32 @@ paths:
             type: string
             example: jean
       responses:
-        '200':
-          description: successful operation
+        '200': {
+          "description": "Successful operation"
+        }
         '400':
-          description: Invalid name supplied
+          description: Invalid ID supplied
+        '404':
+          description: Page not found
+        '405':
+          description: Validation exception
+  /hachage:
+    get:
+      tags:
+        - GET
+      summary: Vérification de l'intégrité des données après hashage
+      description: EndPoint permettant la vérification de l'intégrité des données après hashage
+      operationId: verificationIntegriteHachage
+      responses:
+        '200': {
+          "description": "Successful operation"
+        }
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Page not found
+        '405':
+          description: Validation exception
   /<_P1>/<_P2>/<_t>/<_s>:
     put:
       tags:
@@ -117,7 +144,12 @@ paths:
             format: float
             example: 500
       responses:
-        '200':
-          description: successful operation
+        '200': {
+          "description": "Successful operation"
+        }
         '400':
-          description: Invalid name supplied
+          description: Invalid ID supplied
+        '404':
+          description: Page not found
+        '405':
+          description: Validation exception
