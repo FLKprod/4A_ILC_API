@@ -5,7 +5,7 @@
 
 # Langage utilisé : Python
 
-Nous utilisons acutellement ce langage dans différents projets, c'est pourquoi nous avoir choisi celui-ci. 
+Nous utilisons actuellement ce langage dans différents projets, c'est pourquoi nous avoir choisi celui-ci. 
 
 # **Sujet choisi : "Sujet guidé"**
 
@@ -17,9 +17,9 @@ Luke : https://github.com/lukedvy
 
 Romain : https://github.com/romainbcode
 
-# Choix fonction de hashage : 
+# Choix de la fonction de hachage : 
 
-SHA-256
+SHA-256. Cette fonction opère sur 32 bits.
 
 # Quelques boutons d'actions : 
 
