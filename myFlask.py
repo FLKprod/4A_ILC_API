@@ -56,7 +56,7 @@ with open('data.csv', newline='', encoding="utf-8-sig") as csvfile:
             tab.append(p)
 
 #Boucle permettant de parcourir le fichier CSV, et de créer les transactions définies, en cherchant pour chaque transactions les personnes associées
-for i in range(1, 7):
+for i in range(1, 6):
     for j in range(len(personne)):
             if(personne[j].nom == str(tab[i][0])):
                 _P1=personne[j]
